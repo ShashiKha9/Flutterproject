@@ -1,24 +1,11 @@
 import 'package:flutter/material.dart';
 
 class RecyclerClass extends StatelessWidget {
-
   List<String> data = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P"
+    "Item 1",
+    "Item 2",
+    "Item 3",
+    "Item 4"
   ];
 
   final GlobalKey<AnimatedListState> _key = GlobalKey();
@@ -27,17 +14,21 @@ class RecyclerClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Material(
-          color: Colors.grey,
-          /*child: Center(
-              child: Text("hello world Ashish Kha", textDirection: TextDirection.ltr),
-            )*/
-          child: AnimatedList(
+        home: Scaffold(
+          backgroundColor: Colors.lightBlueAccent,
+          appBar: AppBar(
+            title: Text("Animated"),
+          ),
+          body: AnimatedList(
             key: _key,
             initialItemCount: data.length,
             itemBuilder: (context, index, animation) {
               return buildItem(data[index], animation, index);
             },
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () => addItem(),
           ),
         ));
   }
@@ -72,5 +63,11 @@ class RecyclerClass extends StatelessWidget {
       return buildItem(removedItem, animation, index);
     };
     _key.currentState.removeItem(index, builder);
+  }
+
+  void addItem() {
+    int i = data.length > 0 ? data.length : 0;
+    data.insert(i, 'Item ${data.length+1}');
+    _key.currentState.insertItem(i);
   }
 }
