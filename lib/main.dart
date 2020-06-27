@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/recycler/RecyclerClass.dart';
 
 void main() {
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Material(
-          color: Colors.red,
-          child: Center(
-            child: Text("hello world", textDirection: TextDirection.ltr),
-          ))));
+  runApp(RecyclerClass());
 }
+
+
