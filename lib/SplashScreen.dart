@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  String _versionName = 'V1.0';
+  String _versionName = 'V0.0';
   final splashDelay = 5;
 
   @override
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Image.asset(
-                            'images/img_splash.png',
+                            'assets/sample.jpg',
                             height: 300,
                             width: 300,
                           ),
