@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget{
  Text(
     _volume.toString(),
     style: TextStyle(fontSize: 50)
-    ),//sample
+    ),//samples
 
 
 
