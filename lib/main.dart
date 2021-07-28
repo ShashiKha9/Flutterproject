@@ -5,11 +5,12 @@ import 'package:flutter/rendering.dart';
 // import 'package:flutterapp/SplashScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyHomePage());
 
 }
 
 //
+
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -25,44 +26,56 @@ class MyApp extends StatelessWidget{
           title: Text("My App"),
 
         ),
-    body: Center(
-    child: new Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-    InkWell(
-    splashColor: Colors.green,
-    highlightColor: Colors.blue,
-    child: Icon(Icons.ring_volume, size: 50),
-    onTap: () {
-    // setState(() {
-    _volume += 10;
-    // });
-    },
-    ),
- Text(
-    _volume.toString(),
-    style: TextStyle(fontSize: 50)
-    ),//samples
 
+      )
 
-
-
-
-
-
-
-
-  ]
-      ),
-    ),
-
-    )
     );
 
   }
 
 }
-int _volume = 0;
+class MyApp1 extends MyApp {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        addNumber(10, 90),
+        textDirection: TextDirection.ltr,
+        style: TextStyle(fontSize: 30),
+
+      )
+
+    );
+
+  }
+  String addNumber(a,b) {
+    return    "Number is ${(a+b)}";
+    ;
+  }
+
+}
+class MyHomePage extends StatefulWidget{
+  @override
+  MyHomePageState createState() => MyHomePageState();
+}
+
+class MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+ return Center(
+   child: Column(
+     children: <Widget>[
+       TextField(
+         onSubmitted: (value) {
+
+         }
+       )
+     ],
+   ),
+ );
+  }
+
+}
 
 
 
