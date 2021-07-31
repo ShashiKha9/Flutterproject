@@ -1,9 +1,10 @@
 
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutterapp/loginpage.dart';
+// import 'package:google_fonts/google_fonts.dart';
 // import 'package:flutterapp/recycler/RecyclerClass.dart';
 // import 'package:flutterapp/SplashScreen.dart';
 
@@ -13,39 +14,35 @@ void main() {
   );
 
 }
+
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-      themeMode: ThemeMode.dark,
+ themeMode: ThemeMode.dark,
       theme: ThemeData(
-        primarySwatch: Colors.purple
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
+        primarySwatch:Colors.red
       ),
       routes: {
         "/": (context) => LoginPage(),
-        "/login": (context) => LoginPage(),
 
-      },
-
-
-
-      title: "MyApp",
-      home: Scaffold(
-
-       appBar: AppBar(
-         title: Text("MuskApp"),
-
-
-       ),
-      ),
-
+      }
     );
+
+
+
+
+
+
   }
+
 }
+
+
+
+
+
+
 //
 
 
