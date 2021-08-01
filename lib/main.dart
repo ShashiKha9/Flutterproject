@@ -4,6 +4,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/loginpage.dart';
+import 'Homepage.dart';
+
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:flutterapp/recycler/RecyclerClass.dart';
 // import 'package:flutterapp/SplashScreen.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget{
       ),
       routes: {
         "/": (context) => LoginPage(),
+        "/Home": (context) => HomePage(),
+
 
       }
     );
