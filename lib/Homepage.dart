@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutterapp/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget{
   @override
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget{
         title: Text("MuskApp"),
 
       ) ,
-      drawer: Drawer(
+      drawer: MyDrawer(
 
       ),
 

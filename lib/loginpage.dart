@@ -13,22 +13,35 @@ class LoginPageState extends State<LoginPage>{
   @override
   String name ="";
   bool changeButton = false;
+  final formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
       return Scaffold(
         body:SafeArea(
-          
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
+
+
           child: Column(
 
 
 
             children: [
+              Image.asset("images/neww.jpg",
+              fit: BoxFit.cover,),
+
               TextFormField(
                 decoration: InputDecoration(
                   labelText: "Username",
                   hintText: "Enter Username",
                   icon: Icon(Icons.account_circle),
                 ),
+                validator: (value) {
+                  if(value.isEmpty){
+                    return "Enter Username";
+                  }
+                }
 
 
 
@@ -41,7 +54,16 @@ class LoginPageState extends State<LoginPage>{
                   hintText: "Enter Password",
                   icon: Icon(Icons.password),
                 ),
+                  validator: (value) {
+                    if(value.isEmpty){
+                      return "Enter Password";
+                    }
+                    else if(value.length < 8){
+                      return  "Password length should be altleast 8 ";
+                    }
+                  }
               ),
+
               //
               TextFormField(
 
@@ -51,6 +73,14 @@ class LoginPageState extends State<LoginPage>{
                   icon: Icon(Icons.email),
 
                 ),
+                  validator: (value) {
+                    if(value.isEmpty){
+                      return "Enter Email id";
+                    }
+                    else if(!value.contains("@")) {
+                      return "Enter valid Email id";
+                    }
+                  }
               ),
               //
               SizedBox(
@@ -59,13 +89,15 @@ class LoginPageState extends State<LoginPage>{
               ),
                InkWell(
                  onTap: () async {
-                   setState(() {
-                     changeButton=true;
-                   });
-              await  Future.delayed(Duration(seconds: 1));
-                   Navigator.pushNamed(context, MyRoutes.homeRoute);
-                 },
+                   if (formKey.currentState.validate()) {
+                     setState(() {
+                       changeButton = true;
+                     });
+                     await Future.delayed(Duration(seconds: 1));
+                     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                   }
 
+                 },
 
                child: AnimatedContainer(
                  duration: Duration(seconds: 1),
@@ -95,6 +127,7 @@ class LoginPageState extends State<LoginPage>{
 
 
 
+
               // ElevatedButton(
               //   child: Text("Login"),
               //   onPressed: (){
@@ -106,6 +139,8 @@ class LoginPageState extends State<LoginPage>{
             ],
           ),
 
+        )
+        )
         )
 
       );
