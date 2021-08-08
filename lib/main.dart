@@ -8,13 +8,10 @@ import 'package:flutterapp/utils/route.dart';
 import 'Homepage.dart';
 
 
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:flutterapp/recycler/RecyclerClass.dart';
-// import 'package:flutterapp/SplashScreen.dart';
 
 void main() {
-  runApp(
-      MyApp()
+  runApp( MaterialApp(
+   home:  HomePage())
   );
 
 }
